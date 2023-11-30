@@ -1,0 +1,17 @@
+[
+	{
+		"id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+		"name": "立德大樓5樓",
+		"assign": true
+	},
+	{
+		"id": "3fa85f64-5717-4562-b3fc-2c963f66add7",
+		"name": "立功大樓10樓",
+		"assign": false
+	},
+	{
+		"id": "3fa85f64-5717-9999 -b3fc-2963f6sfsd8",
+		"name": "賓士大樓3樓",
+		"assign": false
+	}
+]

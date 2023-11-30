@@ -1,0 +1,44 @@
+[
+    {
+        "id": "a5b76e7f-ba8f-463e-b8cf-99b49bd03a71",
+        "location": "Stan wang1",
+        "equipmentName": "Asus12345",
+        "equipmentModel": "Manager",
+        "componentName": "2022/12/30"
+    },
+    {
+        "id": "a5b76e7f-ba8f-463e-b8cf-99b49bd03a72",
+        "location": "Stan wang2",
+        "equipmentName": "Asus12345",
+        "equipmentModel": "Manager",
+        "componentName": "2022/12/30"
+    },
+    {
+        "id": "a5b76e7f-ba8f-463e-b8cf-99b49bd03a73",
+        "location": "Stan wang3",
+        "equipmentName": "Asus12345",
+        "equipmentModel": "Manager",
+        "componentName": "2022/12/30"
+    },
+    {
+        "id": "a5b76e7f-ba8f-463e-b8cf-99b49bd03a75",
+        "location": "Stan wang4",
+        "equipmentName": "Asus12345",
+        "equipmentModel": "Manager",
+        "componentName": "2022/12/30"
+    },
+    {
+        "id": "a5b76e7f-ba8f-463e-b8cf-99b49bd03a76",
+        "location": "Stan wang5",
+        "equipmentName": "Asus12345",
+        "equipmentModel": "Manager",
+        "componentName": "2022/12/30"
+    },
+    {
+        "id": "a5b76e7f-ba8f-463e-b8cf-99b49bd03a77",
+        "location": "Stan wang6",
+        "equipmentName": "Asus12345",
+        "equipmentModel": "Manager",
+        "componentName": "2022/12/30"
+    }
+]

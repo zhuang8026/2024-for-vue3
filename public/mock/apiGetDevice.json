@@ -1,0 +1,15 @@
+[
+    {
+      "id": "a5b76e7f-ba8f-463e-b8cf-99b49bd03a76",
+      "name": "馬達",
+      "brand": "日立",
+      "model": "ABC",
+      "equipmentType": "Motor",
+      "power": 12,
+      "material": "Rigid",
+      "frequencyType": "Variable",
+      "rotationalSpeed": 400,
+      "fladeCount": 10,
+      "image": "/path/to/test.jpg"
+    }
+]

@@ -1,0 +1,31 @@
+{
+	"count": 1,
+	"totalPage": 1,
+	"currPage": 1,
+	"next": null,
+	"previous": null,
+	"results": [
+		{
+			"id": "99712099-5f0e-4e45-977c-e9299afbfdb0",
+			"location": "立功大樓",
+			"equipmentName": "333",
+			"equipmentModel": "333",
+			"componentName": "ddd",
+			"componentModel": "ddd",
+			"installLocation": "Inboard",
+			"anomalyPattern": 2,
+			"anomalyCause": 1,
+			"eventType": "normal",
+			"processStatus": "pending",
+			"startTime": 1685547608,
+			"endTime": 1685547619,
+			"lastEditTime": 1685547640,
+			"relabel": false,
+			"review": true,
+			"deleted": false,
+			"sensorId": "113fe188-5f55-46ef-a5a5-cf45009c38ed",
+			"modelId": "d6f5394e-77d9-4705-858f-525a0502e590",
+			"sensorDataId": "c71fcc32-a5e7-40d8-a9d8-91b497eaca5c"
+		}
+	]
+}

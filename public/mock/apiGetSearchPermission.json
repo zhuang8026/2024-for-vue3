@@ -1,0 +1,23 @@
+[
+	{
+    "id": 4,
+    "userEmail": "user1@example.com",
+    "userName": "Sharon Lin4",
+    "role": "admin",
+    "lastLoginDateTime": 1493078566
+  },
+	{
+    "id": 6,
+    "userEmail": "user2@example.com",
+    "userName": "Sharon Lin6",
+    "role": "powerUser",
+    "lastLoginDateTime": 1216944166
+  },
+	{
+    "id": 11,
+    "userEmail": "user11@example.com",
+    "userName": "Sharon Lin11",
+    "role": "powerUser",
+    "lastLoginDateTime": 1216944166
+  }
+]

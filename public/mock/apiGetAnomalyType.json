@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "anomalyPattern": "UNKNOWN"
+  },
+  {
+    "id": 2,
+    "anomalyPattern": "BLADE_PASSING_FREQUENCY"
+  },
+  {
+    "id": 3,
+    "anomalyPattern": "UNBALANCE"
+  },
+  {
+    "id": 4,
+    "anomalyPattern": "PARALLEL_MISALIGNMENT"
+  },
+  {
+    "id": 5,
+    "anomalyPattern": "ANGULAR_MISALIGNMENT"
+  },
+  {
+    "id": 6,
+    "anomalyPattern": "BEND_SHAFT"
+  },
+  {
+    "id": 7,
+    "anomalyPattern": "NONSYMMETRIC_PARTS"
+  },
+  {
+    "id": 8,
+    "anomalyPattern": "PUMP_BASE_INSUFFICIENT_RIGIDITY"
+  },
+  {
+    "id": 9,
+    "anomalyPattern": "PUMP_SCREW_LOOSE"
+  },
+  {
+    "id": 10,
+    "anomalyPattern": "MOTOR_SOFT_FOOT"
+  },
+  {
+    "id": 11,
+    "anomalyPattern": "STRUCTURAL_LOOSENESS_EXTERNAL"
+  },
+  {
+    "id": 12,
+    "anomalyPattern": "COOLING_FAN_BROKEN_OR_RUST"
+  },
+  {
+    "id": 13,
+    "anomalyPattern": "MOTOR_STATOR_ECCENTRICITY"
+  },
+  {
+    "id": 14,
+    "anomalyPattern": "MOTOR_ROTOR_ECCENTRICITY"
+  },
+  {
+    "id": 15,
+    "anomalyPattern": "IMPELLER_UNBALANCE"
+  }
+]

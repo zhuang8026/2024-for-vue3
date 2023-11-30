@@ -1,0 +1,55 @@
+{
+	"count": 40,
+	"totalPage": 3,
+	"currPage": 2,
+	"next": "http://localhost/api/url/?page=2",
+	"previous": null,
+	"results": [
+		{
+			"id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+			"name": "Equipment 2",
+			"brand": "Sony",
+			"model": "XDR-S61DBP",
+			"power": 500000000,
+			"voltage": 220,
+			"electric": 3.4,
+			"locationId": "3fa85f64-5717-9999 -b3fc-2963f6sfsd8",
+			"locationName": "賓士大樓3樓",
+			"component": [
+				{
+					"id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+					"name": "Motor 1",
+					"brand": "Hitachi",
+					"model": "JH-FC2",
+					"componentType": "Motor",
+					"power": 5000000,
+					"material": "Rigid",
+					"frequencyType": "Variable",
+					"interval": "15m",
+					"rotationalSpeed": 1500,
+					"fladeCount": 2,
+					"image": "https://fakeimg.pl/350x200/ff0000,128/000,255",
+					"sensor": [
+						{
+							"id": "a008sadadad",
+							"physicalSensorId": "KS_a008",
+							"name": "Temperature Sensor 1",
+							"interval": "15m",
+							"installLocation": "Inboard",
+							"xAxis": "Horizontal",
+							"yAxis": "Vertical",
+							"zAxis": "Axial",
+							"modelStatus": "Active",
+							"battery": 80,
+							"connected": true,
+							"lastOnlineTime": 1674181822,
+							"getImageApi": "https://fakeimg.pl/350x200/ff0000,128/000,255",
+							"imageDelete": true,
+							"componentId": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+						}
+					]
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,32 @@
+[
+	{
+		"id": "KS_a008",
+		"productId": "a008",
+		"name": "a008",
+		"brand": "KS"
+	},
+	{
+		"id": "ITRI_123",
+		"productId": "productId",
+		"name": "ITRI_product_1",
+		"brand": "ITRI"
+	},
+	{
+		"id": "KS_xyz",
+		"name": "xyz_product",
+		"productId": "productId",
+		"brand": "KS"
+	},
+	{
+		"id": "ITRI_456",
+		"name": "ITRI_product_2",
+		"productId": "productId",
+		"brand": "ITRI"
+	},
+	{
+		"id": "KS_a009",
+		"productId": "productId",
+		"name": "a009",
+		"brand": "KS"
+	}
+]

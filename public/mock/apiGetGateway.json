@@ -1,0 +1,37 @@
+{
+	"count": 40,
+	"totalPage": 10,
+	"currPage": 3,
+	"next": "http://localhost/api/url/?page=2",
+	"previous": null,
+	"results": [
+		{
+			"id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+			"name": "PE100A",
+			"ipAddress": "192.168.0.1",
+			"account": "ABCD",
+			"password": "1234ddddd"
+		},
+		{
+			"id": "3fa85f64-5717-4562-b3fc-2c963f66afa7",
+			"name": "PE100B",
+			"ipAddress": "192.168.0.1",
+			"account": "ABCD",
+			"password": "1234"
+		},
+		{
+			"id": "3fa85f64-5717-4562-b3fc-2c963f66afa8",
+			"name": "PE100B",
+			"ipAddress": "192.168.0.1",
+			"account": "ABCD",
+			"password": "1234"
+		},
+		{
+			"id": "3fa85f64-5717-4562-b3fc-2c963f66afa9",
+			"name": "PE100B",
+			"ipAddress": "192.168.0.1",
+			"account": "ABCD",
+			"password": "1234"
+		}
+	]
+}

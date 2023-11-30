@@ -1,0 +1,104 @@
+{
+	"count": 1,
+	"totalPage": 1,
+	"currPage": 1,
+	"next": null,
+	"previous": null,
+	"results": [
+		{
+			"id": "2d83fead-4a1e-4384-b17a-d79026bfca4f",
+			"name": "EQ-1",
+			"brand": "Eq-Brand",
+			"model": "EQ-M",
+			"power": 22,
+			"voltage": 33,
+			"electric": 44,
+			"location": "立功一樓",
+			"status": "Finished",
+			"component": [
+				{
+					"id": "d5b0c371-5f1c-4342-87d1-7de2dc350303",
+					"name": "22",
+					"brand": "CP2",
+					"model": "CM2",
+					"componentType": "Motor",
+					"power": 22,
+					"material": "Rigid",
+					"frequencyType": "Constant",
+					"rotationalSpeed": 22,
+					"fladeCount": 22,
+					"interval": "5m",
+					"image": null,
+					"getImageApi": null,
+					"imageDelete": false,
+					"sensor": [
+						{
+							"id": "65a36437-9129-4d10-9fda-37099c394998",
+							"name": "222",
+							"installLocation": "Outboard",
+							"battery": 0,
+							"lastOnlineTime": "",
+							"connected": false,
+							"interval": "30m",
+							"xAxis": "Horizontal",
+							"yAxis": "Vertical",
+							"zAxis": "Axial",
+							"modelStatus": "No_Model",
+							"image": null,
+							"getImageApi": null,
+							"imageDelete": false,
+							"componentId": "d5b0c371-5f1c-4342-87d1-7de2dc350303",
+							"physicalSensorId": "KS_2222"
+						}
+					]
+				}
+			]
+		},
+		{
+			"id": "3fa85f64-5717-4562-b3fc-sssss",
+			"name": "Equipment 2",
+			"brand": "Sony",
+			"model": "XDR-S61DBP",
+			"power": 500000000,
+			"voltage": 220,
+			"electric": 3.4,
+			"locationId": "3fa85f64-5717-9999 -b3fc-2963f6sfsd8",
+			"location": "賓士大樓3樓",
+			"component": [
+				{
+					"id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+					"name": "Motor 1",
+					"brand": "Hitachi",
+					"model": "JH-FC2",
+					"componentType": "Motor",
+					"power": 5000000,
+					"material": "Rigid",
+					"frequencyType": "Variable",
+					"interval": "15m",
+					"rotationalSpeed": 1500,
+					"fladeCount": 2,
+					"image": "https://fakeimg.pl/350x200/ff0000,128/000,255",
+					"sensor": [
+						{
+							"id": "a008sadadad",
+							"physicalSensorId": "KS_a008",
+							"name": "Temperature Sensor 1",
+							"interval": "15m",
+							"installLocation": "Inboard",
+							"xAxis": "Horizontal",
+							"yAxis": "Vertical",
+							"zAxis": "Axial",
+							"modelStatus": "Active",
+							"battery": 80,
+							"connected": true,
+							"lastOnlineTime": 1674181822,
+							"getImageApi": "https://fakeimg.pl/350x200/ff0000,128/000,255",
+							"imageDelete": true,
+							"componentId": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+						}
+					]
+				}
+			]
+		}
+	]
+}

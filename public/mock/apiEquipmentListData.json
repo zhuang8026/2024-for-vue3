@@ -1,0 +1,195 @@
+{
+	"count": 40,
+	"totalPage": 3,
+	"currPage": 2,
+	"next": "http://localhost/api/url/?page=2",
+	"previous": null,
+	"results": [
+		{
+			"id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+			"name": "Equipment 2",
+			"brand": "Sony",
+			"model": "XDR-S61DBP",
+			"power": 50,
+			"voltage": 220,
+			"electric": 3.4,
+			"locationId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+			"locationName": "立德1F",
+			"component": [
+				{
+					"id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+					"name": "Motor 1",
+					"brand": "Hitachi",
+					"model": "JH-FC2",
+					"componentType": "Motor",
+					"power": 20,
+					"material": "Stainless Steel",
+					"frequencyType": "Fixed",
+					"interval": "10m",
+					"rotationalSpeed": 1500,
+					"fladeCount": 2,
+					"image": "https://example.com/images/motor1.jpg",
+					"sensor": [
+						{
+							"id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+							"name": "Temperature Sensor 1",
+							"interval": "10m",
+							"installLocation": "Outboard",
+							"xAxis": "Horizontal",
+							"yAxis": "Horizontal",
+							"zAxis": "Vertical",
+							"battery": 80,
+							"connected": false,
+							"lastOnlineTime": 1704038399
+						},
+						{
+							"id": "3fa85f64-5717-4562-b3fc-2c963f66af11",
+							"name": "Temperature Sensor 2",
+							"interval": "10m",
+							"installLocation": "Outboard",
+							"xAxis": "Horizontal",
+							"yAxis": "Horizontal",
+							"zAxis": "Vertical",
+							"battery": 80,
+							"connected": true,
+							"lastOnlineTime": 1670922479
+						}
+					]
+				},
+				{
+					"id": "3fa85f64-5717-4562-b3fc-2c963f66afa7",
+					"name": "Motor 2",
+					"brand": "Hitachi",
+					"model": "JH-FC2",
+					"componentType": "Motor",
+					"power": 20,
+					"material": "Stainless Steel",
+					"frequencyType": "Fixed",
+					"interval": "10m",
+					"rotationalSpeed": 1500,
+					"fladeCount": 2,
+					"image": "https://example.com/images/motor1.jpg",
+					"sensor": [
+						{
+							"id": "3fa85f64-5717-4562-b3fc-2c963f66af99",
+							"name": "Temperature Sensor 21",
+							"interval": "10m",
+							"installLocation": "Outboard",
+							"xAxis": "Horizontal",
+							"yAxis": "Horizontal",
+							"zAxis": "Vertical",
+							"battery": 80,
+							"connected": true,
+							"lastOnlineTime": 1704038399
+						},
+						{
+							"id": "3fa85f64-5717-4562-b3fc-2c963f66af22",
+							"name": "Temperature Sensor 22",
+							"interval": "10m",
+							"installLocation": "Outboard",
+							"xAxis": "Horizontal",
+							"yAxis": "Horizontal",
+							"zAxis": "Vertical",
+							"battery": 80,
+							"connected": true,
+							"lastOnlineTime": 1670922479
+						}
+					]
+				}
+			]
+		},
+		{
+			"id": "3fa85f64-5717-4562-b3fc-2c963f66afbb",
+			"name": "Equipment 003",
+			"brand": "Sony",
+			"model": "XDR-S61DBP",
+			"power": 50,
+			"voltage": 220,
+			"electric": 3.4,
+			"locationId": "3fa85f64-5717-4562-b3fc-2c963f66afcc",
+			"locationName": "立功15F",
+			"component": [
+				{
+					"id": "3fa85f64-5717-4562-b3fc-2c963f66afdd",
+					"name": "Motor 1",
+					"brand": "Hitachi",
+					"model": "JH-FC2",
+					"componentType": "Motor",
+					"power": 20,
+					"material": "Stainless Steel",
+					"frequencyType": "Fixed",
+					"interval": "10m",
+					"rotationalSpeed": 1500,
+					"fladeCount": 2,
+					"image": "https://example.com/images/motor1.jpg",
+					"sensor": [
+						{
+							"id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+							"name": "Temperature Sensor 21",
+							"interval": "10m",
+							"installLocation": "Outboard",
+							"xAxis": "Horizontal",
+							"yAxis": "Horizontal",
+							"zAxis": "Vertical",
+							"battery": 80,
+							"connected": true,
+							"lastOnlineTime": 1704038399
+						},
+						{
+							"id": "3fa85f64-5717-4562-b3fc-2c963f66af11",
+							"name": "Temperature Sensor 22",
+							"interval": "10m",
+							"installLocation": "Outboard",
+							"xAxis": "Horizontal",
+							"yAxis": "Horizontal",
+							"zAxis": "Vertical",
+							"battery": 80,
+							"connected": false,
+							"lastOnlineTime": 1670922479
+						}
+					]
+				},
+				{
+					"id": "3fa85f64-5717-4562-b3fc-2c963f66afa7",
+					"name": "Motor 2",
+					"brand": "Hitachi",
+					"model": "JH-FC2",
+					"componentType": "Motor",
+					"power": 20,
+					"material": "Stainless Steel",
+					"frequencyType": "Fixed",
+					"interval": "10m",
+					"rotationalSpeed": 1500,
+					"fladeCount": 2,
+					"image": "https://example.com/images/motor1.jpg",
+					"sensor": [
+						{
+							"id": "3fa85f64-5717-4562-b3fc-2c963f66af99",
+							"name": "Temperature Sensor 21",
+							"interval": "10m",
+							"installLocation": "Outboard",
+							"xAxis": "Horizontal",
+							"yAxis": "Horizontal",
+							"zAxis": "Vertical",
+							"battery": 80,
+							"connected": true,
+							"lastOnlineTime": 1704038399
+						},
+						{
+							"id": "3fa85f64-5717-4562-b3fc-2c963f66af22",
+							"name": "Temperature Sensor 22",
+							"interval": "10m",
+							"installLocation": "Outboard",
+							"xAxis": "Horizontal",
+							"yAxis": "Horizontal",
+							"zAxis": "Vertical",
+							"battery": 80,
+							"connected": true,
+							"lastOnlineTime": 1670922479
+						}
+					]
+				}
+			]
+		}
+	]
+}

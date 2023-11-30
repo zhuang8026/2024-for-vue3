@@ -1,0 +1,58 @@
+.layout-main {
+    overflow-x: hidden;
+    overflow-y: scroll;
+    // background-color: #fff;
+    scroll-behavior: smooth;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+    header {
+        position: fixed;
+        top: 0;
+        z-index: 1000;
+        width: 100%;
+        // background-color: #fff;
+
+        .header-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            // height: $header-height;
+            margin: 0 auto;
+            // padding: 0 $basic-padding;
+            // background-color: #fff;
+
+            .left {
+                display: flex;
+                gap: 1rem;
+                align-items: center;
+
+                .logo {
+                    width: 16.25rem;
+                    height: 3.75rem;
+
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: contain;
+                    }
+                }
+            }
+
+            .right {
+                display: flex;
+                align-items: center;
+                justify-content: space-evenly;
+
+                .mask {
+                    display: none;
+                }
+            }
+
+            .rwd {
+                display: none;
+            }
+        }
+    }
+}

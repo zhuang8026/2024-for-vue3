@@ -1,0 +1,38 @@
+{
+	"count": 40,
+	"totalPage": 2,
+	"currPage": 1,
+	"next": "http://localhost/api/diagnostics/event/?page=2",
+	"previous": null,
+	"results": [
+		{
+			"id": "f92f08f9-d3ce-40bf-b5f7-e1b9d949a7a5",
+			"name": "test1",
+			"interval": "5m",
+			"installLocation": "Outboard",
+			"xAxis": "Vertical",
+      "yAxis": "Horizontal",
+      "zAxis": "Axial",
+			"modelStatus": "Active",
+			"battery": 0,
+			"connected": false,
+			"lastOnlineTime": "",
+			"modelStatus": "Not_Ready",
+			"getImageApi": "string",
+			"imageDelete": false,
+			"componentId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+			"componentName": "Component02",
+			"componentModel": "asus02",
+			"componentInterval": null,
+			"equipmentId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+			"equipmentName": "幫浦",
+			"equipmentModel": "Pump01",
+			"locationId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+			"locationName": "LD-10F",
+			"physicalSensorId": "KS_5000",
+			"physicalSensorName": "MySensor",
+			"physicalSensorBrand": "KS",
+			"physicalSensorModel": "string"
+		}
+	]
+}

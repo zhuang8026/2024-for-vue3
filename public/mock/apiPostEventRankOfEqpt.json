@@ -1,0 +1,44 @@
+[
+    {
+        "location": "LiGong15F",
+        "equipmentName": "冰水機",
+        "equipmentModel": "EYTI5f35",
+        "equipmentType": "Motor",
+        "eventQty": 40
+    },    
+    {
+        "location": "LD 10F",
+        "equipmentName": "冰水機",
+        "equipmentModel": "WWe47",
+        "equipmentType": "馬達",
+        "eventQty": 99
+    },    
+    {
+        "location": "LD 10F",
+        "equipmentName": "冰水機",
+        "equipmentModel": "WWe47",
+        "equipmentType": "馬達",
+        "eventQty": 8
+    },    
+    {
+        "location": "LD 10F",
+        "equipmentName": "冰水機",
+        "equipmentModel": "WWe47",
+        "equipmentType": "馬達",
+        "eventQty": 33
+    },    
+    {
+        "location": "LD 10F",
+        "equipmentName": "冰水機",
+        "equipmentModel": "WWe47",
+        "equipmentType": "馬達",
+        "eventQty": 6
+    },    
+    {
+        "location": "LD 10F",
+        "equipmentName": "冰水機",
+        "equipmentModel": "WWe47",
+        "equipmentType": "馬達",
+        "eventQty": 24
+    }
+]

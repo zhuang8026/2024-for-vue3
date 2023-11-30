@@ -1,0 +1,57 @@
+{
+	"count": 1,
+	"totalPage": 1,
+	"currPage": "1",
+	"next": null,
+	"previous": null,
+	"results": [
+		{
+			"sensorId": "113fe188-5f55-46ef-a5a5-cf45009c38ed",
+			"location": "立功大樓22",
+			"equipmentName": "333",
+			"equipmentModel": "333",
+			"componentName": "ddd",
+			"componentModel": "ddd",
+			"brand": "ITRI",
+			"installLocation": "Inboard",
+			"connected": true,
+			"model": []
+		},
+		{
+			"sensorId": "113fe188-5f55-46ef-a5a5-cf45009c38e8",
+			"location": "立功大樓",
+			"equipmentName": "444",
+			"equipmentModel": "555",
+			"componentName": "dddPPP",
+			"componentModel": "ddd",
+			"brand": "ITRI",
+			"installLocation": "Inboard",
+			"connected": true,
+			"model": [
+				{
+					"id": "1a2b3c4d-1234-5678-abcd-9876543210ef",
+					"modelStatus": "building",
+					"expDateTime": 1685827958
+				}
+			]
+		},
+		{
+			"sensorId": "113fe188-5f55-46ef-a5a5-cf45009c38d8",
+			"location": "立功大樓A",
+			"equipmentName": "PPP",
+			"equipmentModel": "555",
+			"componentName": "qqq",
+			"componentModel": "ddd",
+			"brand": "ITRI",
+			"installLocation": "Inboard",
+			"connected": true,
+			"model": [
+				{
+					"id": "1a2b3c4d-1234-5678-abcd-9876543210ef",
+					"modelStatus": "build-fail",
+					"expDateTime": 1685827958
+				}
+			]
+		}
+	]
+}

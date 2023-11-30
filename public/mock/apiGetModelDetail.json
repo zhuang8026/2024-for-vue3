@@ -1,0 +1,28 @@
+{
+	"results": [
+		{
+			"model": [
+				{
+					"id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+					"modelName": "07/21 16:30",
+					"status": "uncreate",
+					"active": false
+				},
+				{
+					"id": "3fa85f64-5717-4562-b3fc-2c963f66afa9",
+					"modelName": "99/21 20:11",
+					"status": "uncreate",
+					"active": true
+				}
+			],
+			"location": "Ligong-12F",
+			"equipmentName": "Chiller",
+			"equipmentModel": "HTD374",
+			"componentName": "Motor",
+			"componentModel": "itr44t",
+			"installLocation": "Inboard",
+			"sensorId": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+		}
+
+	]
+}

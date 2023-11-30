@@ -1,0 +1,1234 @@
+<div class="msg">
+    <!-- 示範區域 -->
+    <!-- msg template -->
+    <!-- <p>modalType: {{modalType}}</p>
+    <p>isModalOpen: {{isModalOpen}}</p> -->
+    <!-- <ui-button class=" w-160px mx-20px mb-0" type="" text="OpenModal"  @onClick="onClickModal" borderRadius="" height="36"></ui-button> -->
+    <!-- <ui-button type="basic" round @click="onClickModal">OpenModal</ui-button> -->
+    <ui-modal
+        v-if="modalType == POPUP.NORMAL"
+        content=""
+        v-model:isOpen="isModalOpen"
+        btnArrange="reverse"
+        @onClickCancel="onClickTestCancel"
+    >
+        <div class="detail-block">
+            <!-- <p>{{POPUP.NORMAL}}</p> -->
+            {{testData}}
+        </div>
+        <ui-input type="text" v-model:value="testOutputData" />
+    </ui-modal>
+    <!-- end of msg template -->
+    <!-- end of 示範區域 -->
+
+    <!-- device -->
+    <ui-modal
+        v-else-if="modalType == POPUP.DEVICE_DELETE"
+        content=""
+        v-model:isOpen="isModalOpen"
+        @onClickConfirm="modalBtnClick( POPUP.DEVICE_DELETE,POPUP_BTN.CONFIRM )"
+    >
+        <div
+            class="detail-block min-h-102px flex justify-center items-center px-[12px]"
+        >
+            <div>The data will be deleted. Continue?</div>
+        </div>
+    </ui-modal>
+    <ui-modal
+        v-else-if="modalType == POPUP.API_ERROR_GLOBAL"
+        title="API Error"
+        content=""
+        btnCancel="{}"
+        v-model:isOpen="isModalOpen"
+        @onClickConfirm="modalBtnClick( POPUP.API_ERROR_GLOBAL,POPUP_BTN.CANCEL )"
+    >
+        <div class="detail-block min-h-102px flex justify-center items-center">
+            <div>{{modalInputData.val}}</div>
+        </div>
+    </ui-modal>
+		<!-- api error no auth 401 -->
+		<ui-modal
+        v-else-if="modalType == POPUP.API_TOKEN"
+        title="Permission Deny"
+        content=""
+        btnCancel="{}"
+        v-model:isOpen="isModalOpen"
+        @onClickConfirm="modalBtnClick( POPUP.API_TOKEN,POPUP_BTN.CANCEL )"
+    >
+        <div class="detail-block min-h-102px flex justify-center items-center">
+            <div>Your token has expired. Please login again.</div>
+        </div>
+    </ui-modal>
+		<!-- NOAUTH 401 -->
+		<!-- api error no auth 403 -->
+		<ui-modal
+        v-else-if="modalType == POPUP.API_NOAUTH"
+        title="Permission Deny"
+        content=""
+        btnCancel="{}"
+        v-model:isOpen="isModalOpen"
+        @onClickConfirm="modalBtnClick( POPUP.API_NOAUTH,POPUP_BTN.CANCEL )"
+    >
+        <div class="detail-block min-h-102px flex justify-center items-center">
+            <div>You do not have permission.</div>
+        </div>
+    </ui-modal>
+		<!-- NOAUTH 403 -->
+		<!-- api login error -->
+		<ui-modal
+        v-else-if="modalType == POPUP.API_LOGIN_ERROR"
+        title="Login Error"
+        content=""
+        btnCancel="{}"
+        v-model:isOpen="isModalOpen"
+        @onClickConfirm="modalBtnClick( POPUP.API_LOGIN_ERROR,POPUP_BTN.CANCEL )"
+    >
+        <div class="detail-block min-h-102px flex justify-center items-center">
+            <div>Incorrect username or password.</div>
+        </div>
+    </ui-modal>
+		<!-- end of api login error -->
+			<!-- api login error -->
+			<ui-modal
+			v-else-if="modalType == POPUP.API_EMAIL_ERROR"
+			title="Login Error"
+			content=""
+			btnCancel="{}"
+			v-model:isOpen="isModalOpen"
+			@onClickConfirm="modalBtnClick( POPUP.API_EMAIL_ERROR,POPUP_BTN.CANCEL )"
+	>
+			<div class="detail-block min-h-102px flex justify-center items-center">
+					<div>Incorrect eamil format</div>
+			</div>
+	</ui-modal>
+	<!-- end of api login error -->
+		<!-- end of api error -->
+    <ui-modal
+        v-else-if="modalType == POPUP.DEVICE_LICENSE"
+        title=" "
+        alignBtn="center"
+        content=""
+        :btnConfirm="btnMainStyle('編輯sensor相關資訊')"
+        :btnCancel="btnBorderMainStyle('繼續新增sensor')"
+        @onClickConfirm="modalBtnClick(POPUP.DEVICE_LICENSE, POPUP_BTN.CONFIRM)"
+        @onClickCancel="modalBtnClick(POPUP.DEVICE_LICENSE, POPUP_BTN.CANCEL)"
+        v-model:isOpen="isModalOpen"
+    >
+        <div class="detail-block">
+            <div class="ml-[40px] mr-[40px] text-[14px]">已綁定完成!</div>
+        </div>
+    </ui-modal>
+    <ui-modal
+        v-else-if="modalType == POPUP.DEVICE_REMIND"
+        title="已完成機台所有必填資訊"
+        alignBtn="center"
+        content=""
+        btnCancel="{}"
+        v-model:isOpen="isModalOpen"
+    >
+        <div class="detail-block">
+            <div class="ml-[40px] mr-[40px] text-[14px]">
+                Reminder! After register sensor, please visit "AI Model"
+                to create model for monitoring abnormal events.
+            </div>
+        </div>
+    </ui-modal>
+    <ui-modal
+        v-else-if="modalType == POPUP.DEVICE_REBUILD"
+        title=" "
+        alignBtn="center"
+        content=""
+				:btnConfirm="btnMainStyle('Rebuild Model')"
+        :btnCancel="btnBorderMainStyle('Back Edit')"
+				@onClickConfirm="modalBtnClick(POPUP.DEVICE_REBUILD, POPUP_BTN.CONFIRM)"
+        v-model:isOpen="isModalOpen"
+    >
+        <div class="detail-block">
+            <div class="ml-[40px] mr-[40px] text-[14px]">
+                Equipement parameters are updated. Create new abnomal detection
+                model(s) now?
+            </div>
+        </div>
+    </ui-modal>
+    <ui-modal
+        v-else-if="modalType == POPUP.DEVICE_SAVE"
+        title=" "
+        alignBtn="center"
+        content=""
+        :btnConfirm="confirmSave"
+        v-model:isOpen="isModalOpen"
+    >
+        <div class="detail-block">
+            <div class="ml-[40px] mr-[40px] text-[14px]">
+                Data was not saved! Press"Cancel" to continue editing, "Abort"
+                to stop editing.
+            </div>
+        </div>
+    </ui-modal>
+    <ui-modal
+        v-else-if="modalType == POPUP.DEVICE_CLEAN_SENSOR"
+        title="Reset Setting"
+        alignBtn="center"
+        content=""
+        v-model:isOpen="isModalOpen"
+        @onClickConfirm="modalBtnClick(POPUP.DEVICE_CLEAN_SENSOR, POPUP_BTN.CONFIRM)"
+        @onClickCancel="modalBtnClick(POPUP.DEVICE_CLEAN_SENSOR, POPUP_BTN.CANCEL)"
+    >
+        <div class="detail-block">
+            <div class="ml-[40px] mr-[40px] text-[14px]">
+							Are you certain you want to reset all the information for this sensor?
+            </div>
+        </div>
+    </ui-modal>
+    <ui-modal
+        v-else-if="modalType == POPUP.DEVICE_CLEAN_COMPONENT"
+        title="Reset Setting"
+        alignBtn="center"
+        content=""
+        v-model:isOpen="isModalOpen"
+        @onClickConfirm="modalBtnClick(POPUP.DEVICE_CLEAN_COMPONENT, POPUP_BTN.CONFIRM)"
+        @onClickCancel="modalBtnClick(POPUP.DEVICE_CLEAN_COMPONENT, POPUP_BTN.CANCEL)"
+    >
+        <div class="detail-block">
+            <div class="ml-[40px] mr-[40px] text-[14px]">
+							Are you certain you want to reset all the information for this component?
+            </div>
+        </div>
+    </ui-modal>
+    <ui-modal
+        v-else-if="modalType == POPUP.DEVICE_CLEAN_EQUIPMENT"
+        title="Reset Setting"
+        alignBtn="center"
+        content=""
+        v-model:isOpen="isModalOpen"
+        @onClickConfirm="modalBtnClick(POPUP.DEVICE_CLEAN_EQUIPMENT, POPUP_BTN.CONFIRM)"
+        @onClickCancel="modalBtnClick(POPUP.DEVICE_CLEAN_EQUIPMENT, POPUP_BTN.CANCEL)"
+    >
+        <div class="detail-block">
+            <div class="ml-[40px] mr-[40px] text-[14px]">
+							Are you certain you want to reset all the information for this equipment?
+            </div>
+        </div>
+    </ui-modal>
+    <ui-modal
+        v-else-if="modalType == POPUP.DEVICE_REMOVE_LICENSE"
+        title=" "
+        alignBtn="center"
+        content=""
+        v-model:isOpen="isModalOpen"
+        btnArrange="reverse"
+    >
+        <div class="detail-block">
+            <div class="ml-[40px] mr-[40px] text-[14px]">
+                若您解除了Sensor
+                License,目前於裝置上的Sensor將無法收取頻譜資料,故無法繼續判定機台狀況,請問您是否月定要解除綁定?
+            </div>
+        </div>
+    </ui-modal>
+    <!-- end of device -->
+
+    <!-- gateway  -->
+    <ui-modal
+        v-else-if="modalType == POPUP.GATEWAY_INPUT"
+        content=""
+        v-model:isOpen="isModalOpen"
+        title="Add Gateway"
+        :btnCancel="btnBorderMainStyle('Return')"
+        :btnConfirm="btnConfirm"
+        :isConfirmClose="true"
+        @onClickCancel="gatewayCancel"
+        @onClickConfirm="gatewayCreate"
+    >
+        <div class="detail-block">
+            <!-- <p>{{POPUP.NORMAL}}</p> -->
+            <!-- <p class="text-error-FF0000">您有資料尚未填寫!</p> -->
+            <div class="px-40px">
+                <div>
+                    <p class="font-medium text-left text-base">
+                        Gateway Name :
+                    </p>
+                    <div class="input-md mt-xs-x">
+                        <ui-input
+                            type="text"
+                            placeholder="KANG SHI AP453"
+                            v-model:value="createGateway.data.name"
+                        />
+                    </div>
+                </div>
+                <div class="mt-20px">
+                    <p class="font-medium text-left text-base">IP Address :</p>
+                    <div class="input-md mt-xs-x">
+                        <ui-input
+                            type="text"
+                            placeholder="26.32.451.65"
+                            v-model:value="createGateway.data.ipAddress"
+                        />
+                    </div>
+                </div>
+                <div class="mt-20px">
+                    <p class="font-medium text-left text-base">Account :</p>
+                    <div class="input-md mt-xs-x">
+                        <ui-input
+                            type="text"
+                            placeholder="AA1100035"
+                            v-model:value="createGateway.data.account"
+                        />
+                    </div>
+                </div>
+                <div class="mt-20px">
+                    <p class="font-medium text-left text-base">Password :</p>
+                    <div class="input-md mt-xs-x">
+                        <ui-input
+                            type="password"
+                            placeholder="AA10395"
+                            v-model:value="createGateway.data.password"
+                        />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ui-modal>
+    <ui-modal
+        v-else-if="modalType == POPUP.GATEWAY_EDIT"
+        content=""
+        v-model:isOpen="isModalOpen"
+        title="Edit Gateway"
+        :btnCancel="gatewayCancelBtn"
+        :btnConfirm="btnConfirm"
+        :isConfirmClose="true"
+        @onClickCancel="gatewayCancel"
+        @onClickConfirm="gatewayEdit"
+    >
+        <div class="detail-block">
+            <!-- <p class="text-error-FF0000">您有資料尚未填寫!</p> -->
+            <div class="px-40px">
+                <div>
+                    <p class="font-medium text-left text-base">
+                        Gateway Name :
+                    </p>
+                    <div class="input-md mt-xs-x">
+                        <ui-input
+                            type="text"
+                            placeholder="KANG SHI AP453"
+                            v-model:value="createGateway.data.name"
+                        />
+                    </div>
+                </div>
+                <div class="mt-20px">
+                    <p class="font-medium text-left text-base">IP Address :</p>
+                    <div class="input-md mt-xs-x">
+                        <ui-input
+                            type="text"
+                            placeholder="26.32.451.65"
+                            v-model:value="createGateway.data.ipAddress"
+                        />
+                    </div>
+                </div>
+                <div class="mt-20px">
+                    <p class="font-medium text-left text-base">Account :</p>
+                    <div class="input-md mt-xs-x">
+                        <ui-input
+                            type="text"
+                            placeholder="AA1100035"
+                            v-model:value="createGateway.data.account"
+                        />
+                    </div>
+                </div>
+                <div class="mt-20px">
+                    <p class="font-medium text-left text-base">Password :</p>
+                    <div class="input-md mt-xs-x">
+                        <ui-input
+                            type="text"
+                            placeholder="AA10395"
+                            v-model:value="createGateway.data.password"
+                        />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ui-modal>
+    <ui-modal
+        v-else-if="modalType == POPUP.GATEWAY_DELETE"
+        content=""
+        v-model:isOpen="isModalOpen"
+        title="Delete Gateway"
+        @onClickCancel="gatewayCancel"
+        @onClickConfirm="gatewayDelete"
+    >
+        <div class="detail-block min-h-102px flex justify-center items-center">
+            <!-- <p>{{POPUP.NORMAL}}</p> -->
+            <div>The data will be deleted. Continue?</div>
+        </div>
+    </ui-modal>
+    <!-- end of gateway -->
+
+    <!-- Event -->
+    <ui-modal
+        v-else-if="modalType == POPUP.EVENT_TO_TRASH"
+        content=""
+        v-model:isOpen="isModalOpen"
+        title="Event deletion"
+        :btnCancel="btnBorderMainStyle('Cancel')"
+        :btnConfirm="btnMainStyle('Confirm')"
+				btnArrange="reverse"
+        :isConfirmClose="true"
+        @onClickCancel="eventSelectDelete"
+        @onClickConfirm="modalBtnClick(POPUP.EVENT_TO_TRASH)"
+    >
+        <div class="detail-block">
+            <p class="text-xs">
+							After deletion, events will be retained in the event trash for 30 days.<br/>
+							Would you like to delete {{modalInputData?.count}} event?
+            </p>
+        </div>
+    </ui-modal>
+    <ui-modal
+        v-else-if="modalType == POPUP.EVENT_ALL_TRASH"
+        content=""
+        v-model:isOpen="isModalOpen"
+        title="Event deletion"
+        :btnCancel="deleteAll"
+        :btnConfirm="goToCheck"
+        :isConfirmClose="true"
+        @onClickCancel="eventDeleteAll"
+        @onClickConfirm="eventGoToTrash"
+    >
+        <div class="detail-block">
+            <p class="text-xs">
+							Trash​ is full! Delete or Review Trash​.
+            </p>
+        </div>
+    </ui-modal>
+    <!-- end of Event -->
+
+    <!-- Event Trash -->
+    <ui-modal
+        v-else-if="modalType == POPUP.EVENT_TRASH_RESET"
+        content=""
+        v-model:isOpen="isModalOpen"
+        title="Restore Events?"
+        :btnConfirm="canReset"
+        :btnCancel="resetCancel"
+        :isConfirmClose="true"
+        @onClickConfirm="trashCanReset"
+        @onClickCancel="trashNotReset"
+    >
+        <div class="detail-block">
+            <p class="text-xs">Restore Events?</p>
+        </div>
+    </ui-modal>
+
+    <ui-modal
+        v-else-if="modalType == POPUP.EVENT_TRASH_HINT"
+        content=""
+        v-model:isOpen="isModalOpen"
+        title=" "
+        :btnCancel="hintToTrash"
+        :btnConfirm="hintToEvent"
+        :isConfirmClose="true"
+        @onClickCancel="trashCanReset"
+        @onClickConfirm="trashToEventList"
+    >
+        <div class="detail-block">
+            <p class="text-xs">The event has been successfully restored! To access the restored event,Please click on 【Visit Event Log】 to view.</p>
+        </div>
+    </ui-modal>
+
+    <ui-modal
+        v-else-if="modalType == POPUP.EVENT_TRASH_DELETE"
+        content=""
+        v-model:isOpen="isModalOpen"
+        title=" "
+        :btnCancel="trashCancel"
+        :btnConfirm="trashConfirm"
+        :isConfirmClose="true"
+        @onClickCancel="trashNotDelete"
+        @onClickConfirm="trashForeverDelete"
+    >
+        <div class="detail-block">
+            <p class="text-xs">
+                permanently delete {{modalInputData?.count}} Events?
+            </p>
+        </div>
+    </ui-modal>
+    <!-- end of Event Trash -->
+
+    <!-- model  -->
+
+    <!-- time period -->
+    <ui-modal
+        v-else-if="modalType == POPUP.MODEL_TIME"
+        content=""
+        v-model:isOpen="isModalOpen"
+        title="Select Data Collection Period"
+        :btnCancel="btnBorderMainStyle('Cancel')"
+        :btnConfirm="btnMainStyle('Start Create')"
+        @onClickConfirm="modalBtnClick(MODEL.ADD, POPUP_BTN.CONFIRM, modelTimeVal)"
+    >
+        <div class="modal-content-block">
+            <p class="mb-24px">
+                Please select the data collection period base on machine
+                operation cycle. Complete operation data can have more precise
+                model.
+            </p>
+            <div>
+                <ui-radio
+                    class="mt-5px"
+                    :options="modelTimeOpts"
+                    displayColumn="h"
+                    label=""
+                    v-model:value="modelTimeVal"
+                    @changeValue="onChangeModelTime"
+                ></ui-radio>
+            </div>
+        </div>
+    </ui-modal>
+
+    <!-- stop creating model -->
+    <ui-modal
+        v-else-if="modalType == POPUP.MODEL_STOP"
+        @onClickConfirm="modalBtnClick(MODEL.STOP)"
+        content=""
+        v-model:isOpen="isModalOpen"
+        title="Terminate Model"
+        :btnCancel="btnBorderMainStyle('Cancel')"
+        :btnConfirm="btnMainStyle('Stop creating')"
+        btnArrange="reverse"
+    >
+        <div class="modal-content-block">
+            <p class="">
+                Stop creating model, all collected data will also be deleted.
+            </p>
+        </div>
+    </ui-modal>
+
+    <ui-modal
+        v-else-if="modalType == POPUP.MODEL_DEL_REMINDER"
+        @onClickConfirm="modalBtnClick(MODEL.DEL)"
+        content=""
+        v-model:isOpen="isModalOpen"
+        title="Delete Model Confirmation"
+        :btnCancel="btnBorderMainStyle('Cancel')"
+        :btnConfirm="btnMainStyle('Delete Model')"
+    >
+        <div class="modal-content-block">
+            <p class="">
+                Reminder! Once the model has been deleted, you still can create
+                new model in "model list"
+            </p>
+        </div>
+    </ui-modal>
+    <ui-modal
+        v-else-if="modalType == POPUP.MODEL_SWITCH"
+        @onClickConfirm="modalBtnClick(MODEL.SWITCH, POPUP_BTN.CONFIRM, modelTimeVal)"
+        @onClickCancel="modalBtnClick(MODEL.SWITCH, POPUP_BTN.CANCEL)"
+        content=""
+        v-model:isOpen="isModalOpen"
+        title="切換至不同模型"
+        :btnCancel="btnBorderMainStyle('Cancel')"
+        :btnConfirm="btnMainStyle('Confirm')"
+        btnArrange="reverse"
+    >
+        <div class="modal-content-block text-center">
+            <p class="">請問您是否確認要切換至"{{modalInputData.modelName}}"</p>
+        </div>
+    </ui-modal>
+
+    <ui-modal
+        v-else-if="modalType == POPUP.MODEL_EVENT_LABEL"
+        @onClickConfirm="modalBtnClick(POPUP.MODEL_EVENT_LABEL, POPUP_BTN.CONFIRM)"
+        content=""
+        v-model:isOpen="isModalOpen"
+        wd="lg"
+        title="Retrain Model"
+				:isConfirmClose="false"
+        :btnCancel="btnBorderMainStyle('Cancel')"
+        :btnConfirm="btnMainStyle('Retrain Model' )"
+        alignBtn="right"
+    >
+				<ModelRetrain v-if="Object.keys(retrainData).length" :datas="retrainData" :sensorId="retrainSensorId" :modelId="retrainModelId"></ModelRetrain>
+        <!-- <div class="px-35px">
+            <div class="flex items-center justify-between">
+                <p class="text-start">
+                    Please decide the number of data for retraining model and
+                    verify the quality of the data.
+                </p>
+                <ui-select
+                    class="max-w-[135px] w-full"
+                    v-model:defaultSelectedValue="optionsRetrain.selected"
+                    :optionArr="optionsRetrain.options"
+                    :required="true"
+                    :showCheckIcon="true"
+                    name=""
+                    :placeholder="''"
+										@onValChange="onSelectRetrainNum($event, index)"
+                ></ui-select>
+            </div>
+            <div>
+                <UiTable
+                    v-model:isCheckedAll="isCheckAll"
+										v-model:selected="selectedEventArr"
+                    :datas="tableData"
+                    :head="tableHead"
+                    :emptyText="'No Event'"
+                    :isItemClick="true"
+										:isSelectedOne="true"
+                    :isHasCheck="false"
+                    :dataOptions="tableDataOptions"
+                    :isEdit="true"
+										@onClickItem="handleRetrainDataFFT"
+                />
+            </div>
+            <div class="flex mt-28px">
+                <h3 class="text-black text-base pb-8px pr-20px">7/31 16:30 FFT圖</h3>
+								<div class="flex justify-center content-center">
+									<ul class="flex space-x-[20px] pr-10px">
+										<li v-for="item in posList"><a href="javascript:;" @click="onClickPos(item.id)" :class="currentPos === item.id ? 'text-black' : 'text-grey-d5'">{{item.text}}</a></li>
+									</ul>
+									<ul class="flex space-x-[20px] pl-10px">
+										<li v-for="item in speedList"><a href="javascript:;" @click="onClickSpeed(item.id)" :class="currentSpeed === item.id ? 'text-black' : 'text-grey-d5'">{{item.text}}</a></li>
+									</ul>
+								</div>
+
+            </div>
+            <ui-line-chart
+                :tooltip-title="tootipTitleFFT"
+                :axis-title="axisTItleFFT"
+                :datas="dataFFT"
+                class="h-200px mb-28px"
+            ></ui-line-chart>
+
+        </div> -->
+				<!-- <template #btn><p>Confirmed 30/{{optionsRetrain.selected.name}}</p></template> -->
+    </ui-modal>
+
+    <!-- end of model -->
+
+    <!-- Personal Setting -->
+    <ui-modal
+        v-else-if="modalType == POPUP.LOGOUT"
+        content=""
+        v-model:isOpen="isModalOpen"
+        title="Logout"
+        btnArrange="reverse"
+        @onClickConfirm="modalBtnClick(POPUP.LOGOUT,POPUP_BTN.CONFIRM)"
+        @onClickCancel="modalBtnClick(POPUP.LOGOUT,POPUP_BTN.CANCEL)"
+    >
+        <div class="modal-content-block text-center">
+            <p class="">Are you sure you would like to log out?</p>
+        </div>
+    </ui-modal>
+    <!-- End of Personal Setting -->
+
+    <!-- dashboard -->
+    <ui-modal
+        v-else-if="modalType == POPUP.DASHBOARD_WIDGETS"
+        content=""
+        v-model:isOpen="isModalOpen"
+        title="Managing Dashboard Widgets"
+        btnArrange="reverse"
+        @onClickConfirm="modalBtnClick(POPUP.DASHBOARD_WIDGETS,POPUP_BTN.CONFIRM,dashboardCheck)"
+        @onClickCancel="modalBtnClick(POPUP.DASHBOARD_WIDGETS,POPUP_BTN.CANCEL)"
+    >
+        <div class="modal-content-block text-center">
+            <UiCheckbox
+                :options="dashboardEventList"
+                displayColumn="h"
+                label=""
+                v-model:value="dashboardCheck.data"
+                margin="23px"
+            ></UiCheckbox>
+        </div>
+    </ui-modal>
+    <!-- End of dashboard -->
+
+    <!-- Select license to bind -->
+    <ui-modal
+        v-else-if="modalType == POPUP.LICENSE_SELECT"
+        content=""
+        v-model:isOpen="isModalOpen"
+        title="Select license to bind"
+        :btnCancel="btnBorderMainStyle('Return')"
+        :btnConfirm="btnMainStyle('Bind')"
+        @onClickConfirm="modalBtnClick(POPUP.LICENSE_SELECT, POPUP_BTN.CONFIRM, licenseSelected)"
+    >
+        <div class="modal-content-block">
+            <p class="text-left text-font-base text-base mb-30px">
+                Please select the license dateline which you want to bind.
+            </p>
+            <div class="text-center">
+                <ui-radio
+                    class="mt-5px"
+                    :options="licenseOpts"
+                    displayColumn="h"
+                    label=""
+                    v-model:value="licenseSelected"
+                ></ui-radio>
+            </div>
+        </div>
+    </ui-modal>
+    <!-- end of Select license to bind -->
+
+
+
+    <!-- SMTP -->
+    <ui-modal
+        v-else-if="modalType == POPUP.SMTP_SETTING"
+        content="Outgoing (SMTP) Server Setting Completed."
+        v-model:isOpen="isModalOpen"
+        title="Outgoing (SMTP) Server Setting"
+        :btnCancel="{}"
+        :btnConfirm="btnMainStyle('Confirm')"
+    >
+    </ui-modal>
+    <!-- end of SMTP -->
+
+    <!-- SMTP -->
+    <ui-modal
+        v-else-if="modalType == POPUP.SMTP_SETTING"
+        content="Outgoing (SMTP) Server Setting Completed."
+        v-model:isOpen="isModalOpen"
+        title="Outgoing (SMTP) Server Setting"
+        :btnCancel="{}"
+        :btnConfirm="btnMainStyle('Confirm')"
+    >
+    </ui-modal>
+    <!-- end of SMTP -->
+
+    <!-- permission save -->
+    <ui-modal
+        v-else-if="modalType == POPUP.PERMISSION_SAVE"
+        title="Update user information"
+        content=""
+        v-model:isOpen="isModalOpen"
+        :btnCancel="btnBorderMainStyle('Cancel')"
+        :btnConfirm="btnMainStyle('Confirm')"
+        @onClickConfirm="permissionBtn(POPUP_BTN.CONFIRM)"
+        @onClickCancel="permissionBtn(POPUP_BTN.CANCEL)"
+    >
+        <div class="modal-content-block">
+            <h3 class="text-base font-semibold pb-16px">
+                Save following configurations and send invitation.
+            </h3>
+            <ul class="w-full h-[230px] overflow-y-auto">
+                <li
+                    class="w-full mb-12px flex"
+                    v-for="(items, index) in modalInputData.val"
+                    :key="index"
+                >
+                    <span class="inline-block w-[140px]"
+                        >{{items.detail[0]['txt']}}</span
+                    >
+                    <span class="inline-block w-[170px] break-words overflow-hidden text-ellipsis whitespace-nowrap"
+                        >{{items.detail[1]['txt']}}</span
+                    >
+                    <span class="inline-block w-[95px]"
+                        >{{items.detail[2]['selectId']['name']}}</span
+                    >
+                </li>
+            </ul>
+        </div>
+    </ui-modal>
+
+    <!-- permission save -->
+    <ui-modal
+        v-else-if="modalType == POPUP.PERMISSION_SUCCESS"
+        title="Update user information"
+        content=""
+        v-model:isOpen="isModalOpen"
+        :btnCancel="{}"
+        :btnConfirm="btnMainStyle('Confirm')"
+        @onClickConfirm="permissionBtn(POPUP_BTN.CONFIRM)"
+    >
+        <div class="modal-content-block">
+            <h3 class="text-base font-semibold pb-16px">
+                User information saved and sent invitation to following users:
+            </h3>
+            <ul class="w-full h-[230px] overflow-y-auto">
+                <li
+                    class="w-full mb-12px flex"
+                    v-for="(items, index) in modalInputData.val"
+                    :key="index"
+                >
+                    <span class="inline-block w-[140px]">{{items['userName']}}</span>
+                    <span class="inline-block w-[170px] overflow-hidden text-ellipsis whitespace-nowrap">{{items['userEmail']}}</span>
+                    <span class="inline-block w-[95px]">{{roleType(items['role'])}}</span>
+                </li>
+            </ul>
+        </div>
+    </ui-modal>
+
+    <!-- permission Resent -->
+    <ui-modal
+        v-else-if="modalType == POPUP.PERMISSION_RESENT"
+        title=" "
+        content=""
+        v-model:isOpen="isModalOpen"
+        :btnCancel="{}"
+        :btnConfirm="btnMainStyle('Confirm')"
+				@onClickConfirm="permissionResent()"
+    >
+        <div class="modal-content-block">
+            <h3 class="text-base font-semibold pb-16px">
+                Save following configurations and send invitation ?
+            </h3>
+            <ul class="w-full h-[230px] overflow-y-auto">
+							<li
+								class="w-full mb-12px"
+								v-for="(items, index) in modalInputData.val"
+								:key="index"
+							>
+								<span class="inline-block w-[140px]">{{items['userName']}}</span>
+								<span class="inline-block w-[170px]">{{items['userEmail']}}</span>
+								<span class="inline-block w-[95px]">{{items['role']}}</span>
+							</li>
+            </ul>
+        </div>
+    </ui-modal>
+
+    <!-- permission Edit -->
+    <ui-modal
+        v-else-if="modalType == POPUP.PERMISSION_DELETE"
+        title="Delete Confirm"
+        content=""
+        v-model:isOpen="isModalOpen"
+        :btnCancel="btnBorderMainStyle('Cancel')"
+        :btnConfirm="btnMainStyle('Confirm')"
+    >
+        <div class="modal-content-block">
+            <p class="text-center">Are you sure you would like to {{modalInputData.val}} records?</p>
+        </div>
+    </ui-modal>
+
+    <!-- permission save -->
+    <ui-modal
+        v-else-if="modalType == POPUP.PERMISSION_SAVE"
+        title="Update user information"
+        content=""
+        v-model:isOpen="isModalOpen"
+        :btnCancel="btnBorderMainStyle('Cancel')"
+        :btnConfirm="btnMainStyle('Confirm')"
+        @onClickConfirm="permissionBtn(POPUP_BTN.CONFIRM)"
+        @onClickCancel="permissionBtn(POPUP_BTN.CANCEL)"
+    >
+        <div class="modal-content-block">
+            <h3 class="text-base font-semibold pb-16px">
+                Save following configurations and send invitation.
+            </h3>
+            <ul class="w-full h-[230px] overflow-y-auto">
+                <li
+                    class="w-full mb-12px"
+                    v-for="(items, index) in modalInputData.val"
+                    :key="index"
+                >
+                    <span class="inline-block w-[140px]"
+                        >{{items.detail[0]['txt']}}</span
+                    >
+                    <span class="inline-block w-[170px]"
+                        >{{items.detail[1]['txt']}}</span
+                    >
+                    <span class="inline-block w-[95px]"
+                        >{{items.detail[2]['txt']}}</span
+                    >
+                </li>
+            </ul>
+        </div>
+    </ui-modal>
+
+    <!-- permission save -->
+    <ui-modal
+        v-else-if="modalType == POPUP.PERMISSION_SUCCESS"
+        title="Update user information"
+        content=""
+        v-model:isOpen="isModalOpen"
+        :btnCancel="{}"
+        :btnConfirm="btnMainStyle('Confirm')"
+        @onClickConfirm="permissionBtn(POPUP_BTN.CONFIRM)"
+    >
+        <div class="modal-content-block">
+            <h3 class="text-base font-semibold pb-16px">
+                User information saved and sent invitation to following users:
+            </h3>
+            <ul class="w-full h-[230px] overflow-y-auto">
+                <li
+                    class="w-full mb-12px"
+                    v-for="(items, index) in modalInputData.val"
+                    :key="index"
+                >
+                    <span class="inline-block w-[140px]"
+                        >{{items['userName']}}</span
+                    >
+                    <span class="inline-block w-[170px]"
+                        >{{items['userEmail']}}</span
+                    >
+                    <span class="inline-block w-[95px]">{{items['role']}}</span>
+                </li>
+            </ul>
+        </div>
+    </ui-modal>
+
+    <!-- permission Resent -->
+    <ui-modal
+        v-else-if="modalType == POPUP.PERMISSION_RESENT"
+        title=" "
+        content=""
+        v-model:isOpen="isModalOpen"
+        :btnCancel="{}"
+        :btnConfirm="btnMainStyle('Confirm')"
+        @onClickConfirm="permissionBtn(POPUP_BTN.CONFIRM)"
+    >
+        <div class="modal-content-block">
+            <h3 class="text-base font-semibold pb-16px">
+                Save following configurations and send invitation ?
+            </h3>
+            <ul class="w-full h-[230px] overflow-y-auto">
+                <li
+                    class="w-full mb-12px"
+                    v-for="(items, index) in modalInputData.val"
+                    :key="index"
+                >
+                    <span class="inline-block w-[140px]"
+                        >{{items['userName']}}</span
+                    >
+                    <span class="inline-block w-[170px]"
+                        >{{items['userEmail']}}</span
+                    >
+                    <span class="inline-block w-[95px]">{{items['role']}}</span>
+                </li>
+                <!-- <li class="w-full mb-12px">
+					<span class="inline-block w-[140px]">Yei ching wong</span>
+					<span class="inline-block w-[170px]">AA1234@asus.com</span>
+					<span class="inline-block w-[95px]">Normal User</span>
+				</li>
+				<li class="w-full mb-12px">
+					<span class="inline-block w-[140px]">Yei ching wong</span>
+					<span class="inline-block w-[170px]">AA1234@asus.com</span>
+					<span class="inline-block w-[95px]">Normal User</span>
+				</li>
+				<li class="w-full mb-12px">
+					<span class="inline-block w-[140px]">Yei ching wong</span>
+					<span class="inline-block w-[170px]">AA1234@asus.com</span>
+					<span class="inline-block w-[95px]">Normal User</span>
+				</li>
+				<li class="w-full mb-12px">
+					<span class="inline-block w-[140px]">Yei ching wong</span>
+					<span class="inline-block w-[170px]">AA1234@asus.com</span>
+					<span class="inline-block w-[95px]">Normal User</span>
+				</li> -->
+            </ul>
+        </div>
+    </ui-modal>
+
+		<!-- pwd incorrect when reset pwd-->
+		<ui-modal
+        v-else-if="modalType == POPUP.API_PWD_INCORRECT"
+        title="Password is incorrect"
+        content=""
+        v-model:isOpen="isModalOpen"
+        :btnCancel="btnMainStyle('Confirm')"
+        :btnConfirm="{}"
+        @onClickCancel="modalBtnClick(POPUP.API_PWD_INCORRECT, POPUP_BTN.CANCEL)"
+    >
+        <div class="modal-content-block">
+            <p>
+                Old password is incorrect, please enter the correct password.
+            </p>
+        </div>
+    </ui-modal>
+		<!-- end of pwd incorrect when reset pwd-->
+
+		<!-- first login  reset pwd ok and login again -->
+		<ui-modal
+        v-else-if="modalType == POPUP.PWD_SUCCESS"
+        title="Password is updated"
+        content=""
+        v-model:isOpen="isModalOpen"
+        :btnCancel="{}"
+        :btnConfirm="btnMainStyle('Confirm')"
+        @onClickConfirm="modalBtnClick(POPUP.PWD_SUCCESS, POPUP_BTN.CONFIRM)"
+    >
+        <div class="modal-content-block">
+            <p class="text-center">
+                The Password is updated, please login again.
+            </p>
+        </div>
+    </ui-modal>
+		<!-- end of first login reset pwd ok and login again -->
+
+		<!-- reset pwd -> in main page no need route back to login  -->
+    <ui-modal
+        v-else-if="modalType == POPUP.PWD_RESET"
+        content="Your password is updated"
+        v-model:isOpen="isModalOpen"
+        title="Password updated"
+        :btnCancel="{}"
+        :btnConfirm="btnMainStyle('Confirm')"
+    >
+		<div class="modal-content-block">
+
+	</div>
+    </ui-modal>
+    <!-- end of reset pwd  -> in main page no need route back to login -->
+
+    <!-- permission delete -->
+    <ui-modal
+        v-else-if="modalType == POPUP.PERMISSION_DELETE"
+        title=" "
+        content=""
+        v-model:isOpen="isModalOpen"
+        :btnCancel="btnBorderMainStyle('Cancel')"
+        :btnConfirm="btnMainStyle('Confirm')"
+        @onClickConfirm="permissionBtn(POPUP_BTN.CONFIRM)"
+        @onClickCancel="permissionBtn(POPUP_BTN.CANCEL)"
+    >
+        <div class="modal-content-block">
+            <p>
+                Are you sure you would like to delete
+                {{modalInputData.val.length}} records?
+            </p>
+        </div>
+    </ui-modal>
+
+    <!-- pwd-forget -->
+    <ui-modal
+        v-else-if="modalType == POPUP.PWD_FORGET"
+        content="We have sent a temporary password link to your email box."
+        v-model:isOpen="isModalOpen"
+        title="Email Sent"
+        :btnCancel="{}"
+        :btnConfirm="btnMainStyle('Confirm')"
+        @onClickConfirm="modalBtnClick(POPUP.PWD_FORGET)"
+    >
+    </ui-modal>
+    <!-- end of pwd-forget -->
+		<ui-modal
+        v-else-if="modalType == POPUP.REMIND_DATA_NOT_FULL"
+        @onClickConfirm="modalBtnClick(POPUP.REMIND_DATA_NOT_FULL)"
+        content=""
+        v-model:isOpen="isModalOpen"
+        title="Terminate Model"
+        :btnCancel="btnBorderMainStyle('Cancel')"
+        :btnConfirm="btnMainStyle('Edit')"
+        btnArrange="reverse"
+    >
+        <div class="modal-content-block">
+            <p class="">
+              尚有必填資料未填寫，確認是否要重新編輯
+            </p>
+        </div>
+    </ui-modal>
+		<!-- sensor delete -->
+		<ui-modal
+        v-else-if="modalType == POPUP.SENSOR_DEL"
+        content=""
+				title="Delete Sensor"
+        v-model:isOpen="isModalOpen"
+        @onClickConfirm="modalBtnClick( POPUP.SENSOR_DEL,POPUP_BTN.CONFIRM )"
+    >
+        <div
+            class="detail-block min-h-102px flex justify-start  items-center px-[40px] box-border"
+        >
+						<div class="text-left text-font-0 text-xs">
+							<p class="mb-20px">
+								Are you sure you want to delete {{modalInputData.val}}?
+							</p>
+							<p>
+								If deleted, the following will occur:
+							</p>
+							<ul class="list-decimal pl-12px">
+								<li>The license of the Sensor will be unbound.</li>
+								<li>The model data of the Sensor will be deleted as well.</li>
+								<li>The event data of the Sensor will be continuously preserved.</li>
+							</ul>
+						</div>
+        </div>
+    </ui-modal>
+
+		<!-- SENSOR_DEL -->
+		<ui-modal
+        v-else-if="modalType == POPUP.SENSOR_DEL"
+        content=""
+				title="Delete Sensor"
+        v-model:isOpen="isModalOpen"
+        @onClickConfirm="modalBtnClick( POPUP.SENSOR_DEL,POPUP_BTN.CONFIRM )"
+    >
+        <div
+            class="detail-block min-h-102px flex justify-start  items-center px-[40px] box-border"
+        >
+						<div class="text-left text-font-0 text-xs">
+							<p class="mb-20px">
+								Are you sure you want to delete {{modalInputData.val}}?
+							</p>
+							<p>
+								If deleted, the following will occur:
+							</p>
+							<ul class="list-decimal pl-12px">
+								<li>The license of the Sensor will be unbound.</li>
+								<li>The model data of the Sensor will be deleted as well.</li>
+								<li>The event data of the Sensor will be continuously preserved.</li>
+							</ul>
+						</div>
+        </div>
+    </ui-modal>
+
+		<!--  SENSOR_LIC_EXPIRED-->
+		<ui-modal
+        v-else-if="modalType == POPUP.SENSOR_LIC_EXPIRED"
+        content=""
+				title="Live Data Error"
+				:btnCancel="{}"
+        v-model:isOpen="isModalOpen"
+        @onClickConfirm="modalBtnClick( POPUP.SENSOR_LIC_EXPIRED,POPUP_BTN.CONFIRM )"
+    >
+        <div
+            class="detail-block min-h-102px flex justify-center  items-center px-[40px] box-border"
+        >
+						<div class="text-left text-font-0 text-xs">
+							<p>
+								Sensor permission is not in a valid state. Please confirm the license status.
+							</p>
+						</div>
+        </div>
+    </ui-modal>
+
+		<!--  SENSOR_DISCONNECT-->
+		<ui-modal
+        v-else-if="modalType == POPUP.SENSOR_DISCONNECT"
+        content=""
+				:btnCancel="{}"
+				title="Live Data Error"
+        v-model:isOpen="isModalOpen"
+        @onClickConfirm="modalBtnClick( POPUP.SENSOR_LIC_EXPIRED,POPUP_BTN.CONFIRM )"
+    >
+        <div
+            class="detail-block min-h-102px flex justify-center  items-center px-[40px] box-border"
+        >
+						<div class="text-left text-font-0 text-xs">
+							<p>
+								Sensor is not connected. Please connect the Sensor.
+							</p>
+						</div>
+        </div>
+    </ui-modal>
+
+		<!--  SENSOR_BUSY-->
+		<ui-modal
+        v-else-if="modalType == POPUP.SENSOR_BUSY"
+        content=""
+				:btnCancel="{}"
+				title="Live Data Error"
+        v-model:isOpen="isModalOpen"
+        @onClickConfirm="modalBtnClick( POPUP.SENSOR_BUSY,POPUP_BTN.CONFIRM )"
+    >
+        <div
+            class="detail-block min-h-102px flex justify-center  items-center px-[40px] box-border"
+        >
+						<div class="text-left text-font-0 text-xs">
+							<p>
+								Sensor is busy. Please try again later.
+							</p>
+						</div>
+        </div>
+    </ui-modal>
+
+		<!-- sensor  -->
+
+		<!-- SENSOR_DEL_ERROR -->
+		<ui-modal
+        v-else-if="modalType == POPUP.SENSOR_DEL_ERROR"
+        content=""
+				:btnCancel="{}"
+				title="Sensor Deletion Error"
+        v-model:isOpen="isModalOpen"
+        @onClickConfirm="modalBtnClick( POPUP.SENSOR_DEL_ERROR,POPUP_BTN.CONFIRM )"
+    >
+        <div
+            class="detail-block min-h-102px flex justify-center  items-center px-[40px] box-border"
+        >
+						<div class="text-left text-font-0 text-xs">
+							<p>
+								Please retain at least one sensor to save.
+							</p>
+						</div>
+        </div>
+    </ui-modal>
+
+		<!-- Sensor Live Data -->
+		<ui-modal
+        v-else-if="modalType == POPUP.SENSOR_LIVE_DATA"
+				title="Sensor Live Data"
+        content=""
+				wd="lg"
+				alignBtn="right"
+        v-model:isOpen="isModalOpen"
+				:isConfirmClose="true"
+        :btnCancel="btnMainStyle('Close')"
+				:btnConfirm="''"
+				@onClickCancel="onClickCancel"
+    >
+				<sensorLiveData
+					v-if="isModalOpen"
+					:sensorAPIData ="modalInputData.val"
+				/>
+    </ui-modal>
+
+		<!-- Sensor Live Data: Sensor Deletion Error  -->
+		<ui-modal
+        v-else-if="modalType == POPUP.SENSOR_DELETION_ERROR"
+				title="Sensor Deletion Error"
+        content=""
+				alignBtn="center"
+        v-model:isOpen="isModalOpen"
+				:isConfirmClose="true"
+        :btnCancel="''"
+				:btnConfirm="btnMainStyle('Confirm')"
+				@onClickConfirm="modalBtnClick(POPUP.SENSOR_DELETION_ERROR)"
+    >
+				<div class="w-[418px] m-auto text-left">
+					Due to the following unfilled fieldsin the Component Setting, the sensor health assessment cannot be initiated. Please confirm if you wish to proceed.
+					<br/>
+					<br/>
+					1. Base Plate Type 2. Rated Power
+				</div>
+    </ui-modal>
+
+		<!-- del location -->
+		<ui-modal
+        v-else-if="modalType == POPUP.API_LOCATION_DEL"
+				title="Location cannot be deleted"
+        content=""
+				alignBtn="center"
+        v-model:isOpen="isModalOpen"
+				:isConfirmClose="true"
+        :btnCancel="''"
+				:btnConfirm="btnMainStyle('Confirm')"
+				@onClickConfirm="modalBtnClick(POPUP.API_LOCATION_DEL, POPUP_BTN.CANCEL)"
+    >
+				<div class="w-[418px] m-auto text-center">
+					The location cannot be deleted, it was bound.
+				</div>
+    </ui-modal>
+		<!-- API_LOCATION_DEL -->
+		<!-- end of del location -->
+
+		<!-- del location -->
+		<ui-modal
+        v-else-if="modalType == POPUP.API_NO_ACCOUNT"
+				title="Account does not exist"
+        content=""
+				alignBtn="center"
+        v-model:isOpen="isModalOpen"
+				:isConfirmClose="true"
+        :btnCancel="''"
+				:btnConfirm="btnMainStyle('Confirm')"
+				@onClickConfirm="modalBtnClick(POPUP.API_NO_ACCOUNT, POPUP_BTN.CANCEL)"
+    >
+				<div class="w-[418px] m-auto text-center">
+					Account does not exist.
+				</div>
+    </ui-modal>
+		<!-- API_LOCATION_DEL -->
+		<!-- end of del location -->
+
+
+</div>

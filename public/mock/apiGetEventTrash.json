@@ -1,0 +1,49 @@
+{
+	"count": 400,
+	"totalPage": 20,
+	"currPage": 1,
+	"next": "http://localhost/api/diagnostics/event/?page=2",
+	"previous": null,
+	"results": [
+		{
+			"id": "a5b76e7f-ba8f-463e-b8cf-99b49bd03a71",
+			"location": "LD-10F",
+			"equipmentName": "Chiller",
+			"equipmentModel": "HTD374",
+			"componentName": "Motor",
+			"componentModel": "itr44t",
+			"installLocation": "inboard",
+			"anomalyPattern": 4,
+			"anomalyCause": 5,
+			"eventType": "normal",
+			"processStatus": "Pending",
+			"startTime": "1674181800",
+			"endTime": 1674181822,
+			"lastEditTime": 1674190800,
+			"lastEditorUserId": 20,
+			"modelId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+			"sensorDataId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+			"lastEditUserName": "Alan_Hu"
+		},
+		{
+			"id": "a5b76e7f-ba8f-463e-b8cf-99b49bd03a72",
+			"location": "LD-10F",
+			"equipmentName": "Chiller",
+			"equipmentModel": "HTD374",
+			"componentName": "Motor",
+			"componentModel": "itr44t",
+			"installLocation": "inboard",
+			"anomalyPattern": 6,
+			"anomalyCause": 7,
+			"eventType": "normal",
+			"processStatus": "Pending",
+			"startTime": "1674181800",
+			"endTime": 1674181822,
+			"lastEditTime": 1674190800,
+			"lastEditorUserId": 20,
+			"modelId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+			"sensorDataId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+			"lastEditUserName": "Alan_Hu"
+		}
+	]
+}

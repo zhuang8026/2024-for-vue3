@@ -1,0 +1,173 @@
+[
+	{
+		"id": "3fa85f64-5717-453362-b3fc-2c963f66afa6",
+		"xOA": 2.181184703,
+		"yOA": 2.632345364,
+		"zOA": 6.179343247,
+		"healthyType": "string",
+		"createdTime": 1661792700,
+		"sensorId": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+	},
+	{
+		"id": "3fa85f64-5717-555535-b3fc-2c963f66afa6",
+		"xOA": 1.395226119,
+		"yOA": 2.079886269,
+		"zOA": 5.493247031,
+		"healthyType": "string",
+		"createdTime": 1661803500,
+		"sensorId": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+	},
+	{
+		"id": "3fa85f64-9999-4562-b3fc-2c963f66afa6",
+		"xOA": 1.444245089,
+		"yOA": 2.187827662,
+		"zOA": 5.420955137,
+		"healthyType": "string",
+		"createdTime": 1661814300,
+		"sensorId": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+	},
+	{
+		"id": "3fa85f64-8888-4562-b3fc-2c963f66afa6",
+		"xOA": 1.893053712,
+		"yOA": 2.123316856,
+		"zOA": 5.411727607,
+		"healthyType": "string",
+		"createdTime": 1661825100,
+		"sensorId": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+	},
+	{
+		"id": "3fa85f64-7777-4562-b3fc-2c963f66afa6",
+		"xOA": 1.518779967,
+		"yOA": 2.094690966,
+		"zOA": 4.802664922,
+		"healthyType": "string",
+		"createdTime": 1661835900,
+		"sensorId": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+	},
+	{
+		"id": "3fa85f64-6666-4562-b3fc-2c963f66afa6",
+		"xOA": 1.408717157,
+		"yOA": 2.146364456,
+		"zOA": 4.722223949,
+		"healthyType": "string",
+		"createdTime": 1661846700,
+		"sensorId": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+	},
+	{
+		"id": "3fa85f64-55512-4562-b3fc-2c963f66afa6",
+		"xOA": 1.488276646,
+		"yOA": 2.426602041,
+		"zOA": 5.879596865,
+		"healthyType": "string",
+		"createdTime": 1661943300,
+		"sensorId": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+	},
+	{
+		"id": "3fa85f64-555533-4562-b3fc-2c963f66afa6",
+		"xOA": 1.619456612,
+		"yOA": 2.520051996,
+		"zOA": 6.043033593,
+		"healthyType": "string",
+		"createdTime": 1661954100,
+		"sensorId": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+	},
+	{
+		"id": "3fa85f64-5555-4562-b3fc-2c963f66afa6",
+		"xOA": 1.408941535,
+		"yOA": 2.43460002,
+		"zOA": 6.281480561,
+		"healthyType": "string",
+		"createdTime": 1661964900,
+		"sensorId": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+	},
+	{
+		"id": "3fa85f64-444-4562-b3fc-2c963f66afa6",
+		"xOA": 1.657697887,
+		"yOA": 2.457124436,
+		"zOA": 5.982117693,
+		"healthyType": "string",
+		"createdTime": 1661975700,
+		"sensorId": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+	},
+	{
+		"id": "3fa85f64-3333-4562-b3fc-2c963f66afa6",
+		"xOA": 1.293805742,
+		"yOA": 2.480251689,
+		"zOA": 6.28128525,
+		"healthyType": "string",
+		"createdTime": 1661986500,
+		"sensorId": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+	},
+	{
+		"id": "3fa85f64-2222-4562-b3fc-2c963f66afa6",
+		"xOA": 1.418066941,
+		"yOA": 2.576017256,
+		"zOA": 5.746946885,
+		"healthyType": "string",
+		"createdTime": 1661997300,
+		"sensorId": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+	},
+	{
+		"id": "3fa85f64-57217-4562-b3fc-2c963f66afa6",
+		"xOA": 1.425733895,
+		"yOA": 2.676068135,
+		"zOA": 6.44014521,
+		"healthyType": "string",
+		"createdTime": 1662008100,
+		"sensorId": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+	},
+	{
+		"id": "3fa85f64-2324-4562-b3fc-2c963f66afa6",
+		"xOA": 1.283628437,
+		"yOA": 2.536194153,
+		"zOA": 5.433838987,
+		"healthyType": "string",
+		"createdTime": 1662018900,
+		"sensorId": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+	},
+	{
+		"id": "3fa85f64-wwewr-4562-b3fc-2c963f66afa6",
+		"xOA": 1.649170699,
+		"yOA": 2.184546488,
+		"zOA": 4.890052866,
+		"healthyType": "string",
+		"createdTime": 1662029700,
+		"sensorId": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+	},
+	{
+		"id": "3fa85f64-fgew-4562-b3fc-2c963f66afa6",
+		"xOA": 1.719107006,
+		"yOA": 1.961087394,
+		"zOA": 5.152141296,
+		"healthyType": "string",
+		"createdTime": 1662040500,
+		"sensorId": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+	},
+	{
+		"id": "3fa85f64-aa-4562-b3fc-2c963f66afa6",
+		"xOA": 1.550739337,
+		"yOA": 3.688325723,
+		"zOA": 4.864664481,
+		"healthyType": "string",
+		"createdTime": 1662051300,
+		"sensorId": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+	},
+	{
+		"id": "3fa85f64-dddd-4562-b3fc-2c963f66afa6",
+		"xOA": 1.379585231,
+		"yOA": 2.999632303,
+		"zOA": 4.968950086,
+		"healthyType": "string",
+		"createdTime": 1662062100,
+		"sensorId": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+	},
+	{
+		"id": "3fa85f64-sss-4562-b3fc-2c963f66afa6",
+		"xOA": 1.387194111,
+		"yOA": 2.740117081,
+		"zOA": 5.252664717,
+		"healthyType": "string",
+		"createdTime": 1662072900,
+		"sensorId": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+	}
+]
