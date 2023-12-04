@@ -27,7 +27,7 @@ export default {
         // const store = useGlobalStore();
         // const user = store.userRole;
 
-        console.log('route', route);
+        // console.log('route', route);
 
         onMounted(() => {});
 

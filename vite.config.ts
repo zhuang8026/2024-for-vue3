@@ -29,7 +29,7 @@ export default ({ mode }) => {
             })
         ],
         server: {
-            https: env.VITE_ENV === 'HTTPS' ? true : false
+            https: env.VITE_ENV === 'HTTPS' ? true : false,
         },
         resolve: {
             alias: [{ find: '@', replacement: path.resolve(__dirname, 'src') }]

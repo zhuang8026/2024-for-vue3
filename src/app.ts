@@ -2,7 +2,7 @@ import { computed, onBeforeMount, onMounted, watch, watchEffect, isShallow, reac
 import { useRoute, useRouter } from 'vue-router';
 
 // api
-import { apiSetting } from './api/api';
+// import { apiSetting } from './api/api';
 
 // components
 import LayoutMain from '@/components/block/LayoutMain/index.vue';
@@ -44,7 +44,7 @@ export default {
 
         onBeforeMount(async () => {
             console.log('app onBeforeMount');
-            apiSetting();
+            // apiSetting();
         });
 
         onMounted(() => {

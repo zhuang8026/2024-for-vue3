@@ -2,6 +2,8 @@
 import { createRouter, createWebHashHistory } from 'vue-router';
 import { routes } from './routes.ts';
 
+import { getCookie } from '@/api/cookie';
+
 export const router = createRouter({
     // mode: 'history',
     history: createWebHashHistory(),
@@ -34,6 +36,9 @@ router.beforeEach(async (to, from, next) => {
     let pageName = to.name;
     let fromPath: string = String(from.name);
 
+    let isHasAuth = false;
+    const USER_TOKEN = getCookie('iii_token'); // cookie testing
+
     console.log(`page name: ${String(pageName)}, page requiresAuth: ${isRequiresAuth}, from: ${fromPath}`);
 
     // if (from.name == FUN_NAME.LOGIN) {
@@ -51,7 +56,6 @@ router.beforeEach(async (to, from, next) => {
 
         // let permisson = permissionMapping[pageName]; // 判斷查看用戶資格 [admin, user, super user]
         // let currentRole = store.userRole;
-        let isHasAuth = true;
 
         // dec: permisson has 'all' or [admin, user, super user]
         // if (typeof permisson == 'string') {
@@ -60,6 +64,15 @@ router.beforeEach(async (to, from, next) => {
         // } else {
         //     isHasAuth = permisson.includes(currentRole);
         // }
+
+        // 只有 login 畫面不用驗證 Auth
+        if (pageName != 'login') {
+            if (USER_TOKEN) {
+                isHasAuth = true;
+            } else {
+                isHasAuth = false;
+            }
+        }
 
         isHasAuth ? next() : next('/login');
     } else {

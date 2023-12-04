@@ -13,7 +13,7 @@ export const routes = [
     },
     {
         path: '/main',
-        name: 'Index',
+        name: 'main',
         meta: {
             layout: 'main',
             theme: 'default', // defualt, white, grey
